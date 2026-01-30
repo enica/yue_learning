@@ -15,8 +15,24 @@
         </header>
         
         <main>
+            <!-- 查询表单 -->
+            <div class="search-section">
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="搜索粤语词汇..." class="search-input">
+                    <button type="submit" class="search-btn">搜索</button>
+                </form>
+            </div>
+            
+            <!-- 词汇列表 -->
             <div id="vocabulary-list">
                 <!-- 词汇卡片将通过JavaScript动态生成 -->
+            </div>
+            
+            <!-- 翻页控制 -->
+            <div class="pagination">
+                <button id="prev-page" class="page-btn" disabled>上一页</button>
+                <span id="page-info" class="page-info">第 1 页</span>
+                <button id="next-page" class="page-btn">下一页</button>
             </div>
         </main>
         
@@ -24,6 +40,8 @@
             <p>© 2026 粤语学习助手 | 每天进步一点点</p>
         </footer>
     </div>
+    <script src="vocabulary_data.js"></script>
+    <script src="database.js"></script>
     <script src="yue_learning.js"></script>
 </body>
 </html>

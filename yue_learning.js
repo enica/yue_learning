@@ -1,186 +1,12 @@
-// 粤语词汇数据
-const vocabularyData = [
-    {
-        word: "早晨",
-        pronunciation: "zou2 san4",
-        explanation: "早上好，用于早上打招呼",
-        example: "早晨，今日过得点啊？"
-    },
-    {
-        word: "唔该",
-        pronunciation: "m4 goi1",
-        explanation: "谢谢，麻烦你，用于表达感谢或请求",
-        example: "唔该帮我递下杯水"
-    },
-    {
-        word: "系咁先",
-        pronunciation: "hai6 gam2 sin1",
-        explanation: "就这样先，用于告别",
-        example: "我要走啦，系咁先"
-    },
-    {
-        word: "食咗饭未",
-        pronunciation: "sik6 zo2 faan6 mei6",
-        explanation: "吃了饭没有，用于问候",
-        example: "喂，食咗饭未啊？"
-    },
-    {
-        word: "点解",
-        pronunciation: "dim2 gaai2",
-        explanation: "为什么",
-        example: "点解你今日迟到咗？"
-    },
-    {
-        word: "边度",
-        pronunciation: "bin1 dou6",
-        explanation: "哪里",
-        example: "你住喺边度啊？"
-    },
-    {
-        word: "几钱",
-        pronunciation: "gei2 cin2",
-        explanation: "多少钱",
-        example: "呢件衫几钱啊？"
-    },
-    {
-        word: "冇问题",
-        pronunciation: "mou5 man6 tai4",
-        explanation: "没问题",
-        example: "呢件事交畀我，冇问题"
-    },
-    {
-        word: "好耐冇见",
-        pronunciation: "hou2 noi6 mou5 gin3",
-        explanation: "好久不见",
-        example: "哎，好耐冇见啦！"
-    },
-    {
-        word: "早晨",
-        pronunciation: "zou2 san4",
-        explanation: "早上好",
-        example: "早晨，今日天气几好㖞"
-    },
-    {
-        word: "午安",
-        pronunciation: "ng5 on1",
-        explanation: "中午好",
-        example: "午安，食咗饭未啊？"
-    },
-    {
-        word: "晚安",
-        pronunciation: "maan5 on1",
-        explanation: "晚上好，晚安",
-        example: "晚安，早啲瞓啦"
-    },
-    {
-        word: "多谢",
-        pronunciation: "do1 ze6",
-        explanation: "谢谢",
-        example: "多谢你嘅帮忙"
-    },
-    {
-        word: "对唔住",
-        pronunciation: "deoi3 m4 zyu6",
-        explanation: "对不起",
-        example: "对唔住，撞咗你"
-    },
-    {
-        word: "冇所谓",
-        pronunciation: "mou5 so2 wai6",
-        explanation: "没关系，无所谓",
-        example: "迟到少少冇所谓"
-    },
-    {
-        word: "一齐",
-        pronunciation: "jat1 cai4",
-        explanation: "一起",
-        example: "我哋一齐去行街啦"
-    },
-    {
-        word: "等阵",
-        pronunciation: "dang2 zan6",
-        explanation: "等一下",
-        example: "你等阵，我去攞个嘢"
-    },
-    {
-        word: "咩事",
-        pronunciation: "me1 si6",
-        explanation: "什么事",
-        example: "你揾我有咩事啊？"
-    },
-    {
-        word: "边个",
-        pronunciation: "bin1 go3",
-        explanation: "谁",
-        example: "呢个系边个啊？"
-    },
-    {
-        word: "乜嘢",
-        pronunciation: "mat1 je5",
-        explanation: "什么",
-        example: "你食紧乜嘢啊？"
-    },
-    {
-        word: "点样",
-        pronunciation: "dim2 joeng6",
-        explanation: "怎么样",
-        example: "呢部电影点样啊？"
-    },
-    {
-        word: "几耐",
-        pronunciation: "gei2 noi6",
-        explanation: "多久",
-        example: "你嚟咗几耐啦？"
-    },
-    {
-        word: "边度",
-        pronunciation: "bin1 dou6",
-        explanation: "哪里",
-        example: "洗手间喺边度啊？"
-    },
-    {
-        word: "做乜",
-        pronunciation: "zou6 mat1",
-        explanation: "做什么",
-        example: "你喺度做乜啊？"
-    },
-    {
-        word: "系咪",
-        pronunciation: "hai6 mai6",
-        explanation: "是不是",
-        example: "你系咪广东人啊？"
-    },
-    {
-        word: "冇错",
-        pronunciation: "mou5 co3",
-        explanation: "没错",
-        example: "你讲得冇错"
-    },
-    {
-        word: "可能",
-        pronunciation: "ho2 nang4",
-        explanation: "可能",
-        example: "今日可能会落雨"
-    },
-    {
-        word: "一定",
-        pronunciation: "jat1 ding6",
-        explanation: "一定",
-        example: "我一定会嚟嘅"
-    },
-    {
-        word: "好快",
-        pronunciation: "hou2 faai3",
-        explanation: "很快",
-        example: "佢好快就会返嚟"
-    },
-    {
-        word: "好慢",
-        pronunciation: "hou2 maan6",
-        explanation: "很慢",
-        example: "呢部车开得好慢"
-    }
-];
+// 数据库初始化标记
+let dbInitialized = false;
+
+// 分页和搜索状态
+let currentPage = 1;
+let totalPages = 1;
+let currentVocabularyList = [];
+let isSearchMode = false;
+let currentKeyword = '';
 
 // 获取当前日期
 function getCurrentDate() {
@@ -189,12 +15,60 @@ function getCurrentDate() {
     return today.toLocaleDateString('zh-CN', options);
 }
 
-// 根据日期生成每天的10个词汇
-function getDailyVocabulary() {
-    const today = new Date();
-    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
-    const shuffled = [...vocabularyData].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 10);
+// 获取所有词汇（用于分页和搜索）
+async function getAllVocabulary() {
+    try {
+        // 确保数据库已初始化
+        if (!dbInitialized) {
+            await Database.initDatabase();
+            dbInitialized = true;
+        }
+        
+        // 从数据库获取所有词汇
+        const allVocabulary = await Database.getAllVocabulary();
+        return allVocabulary;
+    } catch (error) {
+        console.error('获取词汇失败:', error);
+        // 出错时使用默认词汇
+        return generateDefaultVocabulary();
+    }
+}
+
+// 获取每日随机词汇
+async function getDailyVocabulary() {
+    try {
+        // 确保数据库已初始化
+        if (!dbInitialized) {
+            await Database.initDatabase();
+            dbInitialized = true;
+        }
+        
+        // 从数据库获取随机词汇
+        const dailyVocabulary = await Database.getRandomVocabulary(10);
+        return dailyVocabulary;
+    } catch (error) {
+        console.error('获取每日词汇失败:', error);
+        // 出错时使用默认词汇
+        return generateDefaultVocabulary();
+    }
+}
+
+// 生成默认词汇（当数据库出错时使用）
+function generateDefaultVocabulary() {
+    // 简单的默认词汇列表
+    const defaultVocabulary = [
+        { word: "早晨", pronunciation: "zou2 san4", explanation: "早上好，用于早上打招呼", example: "早晨，今日过得点啊？" },
+        { word: "唔该", pronunciation: "m4 goi1", explanation: "谢谢，麻烦你，用于表达感谢或请求", example: "唔该帮我递下杯水" },
+        { word: "系咁先", pronunciation: "hai6 gam2 sin1", explanation: "就这样先，用于告别", example: "我要走啦，系咁先" },
+        { word: "食咗饭未", pronunciation: "sik6 zo2 faan6 mei6", explanation: "吃了饭没有，用于问候", example: "喂，食咗饭未啊？" },
+        { word: "点解", pronunciation: "dim2 gaai2", explanation: "为什么", example: "点解你今日迟到咗？" },
+        { word: "边度", pronunciation: "bin1 dou6", explanation: "哪里", example: "你住喺边度啊？" },
+        { word: "几钱", pronunciation: "gei2 cin2", explanation: "多少钱", example: "呢件衫几钱啊？" },
+        { word: "冇问题", pronunciation: "mou5 man6 tai4", explanation: "没问题", example: "呢件事交畀我，冇问题" },
+        { word: "好耐冇见", pronunciation: "hou2 noi6 mou5 gin3", explanation: "好久不见", example: "哎，好耐冇见啦！" },
+        { word: "晚安", pronunciation: "maan5 on1", explanation: "晚上好，晚安", example: "晚安，早啲瞓啦" }
+    ];
+    return defaultVocabulary;
 }
 
 // 生成词汇卡片
@@ -234,15 +108,125 @@ function playPronunciation(pronunciation) {
     console.log(`播放发音: ${pronunciation}`);
 }
 
+// 显示分页数据
+function displayPagedData(page = 1) {
+    // 计算总页数
+    totalPages = Math.ceil(currentVocabularyList.length / 10);
+    
+    // 确保页码有效
+    if (page < 1) page = 1;
+    if (page > totalPages) page = totalPages;
+    
+    currentPage = page;
+    
+    // 获取当前页的数据
+    const pagedData = Database.getPagedVocabulary(currentVocabularyList, currentPage, 10);
+    
+    // 生成词汇卡片
+    generateVocabularyCards(pagedData);
+    
+    // 更新分页信息
+    updatePaginationUI();
+}
+
+// 更新分页UI
+function updatePaginationUI() {
+    document.getElementById('page-info').textContent = `第 ${currentPage} 页 / 共 ${totalPages} 页`;
+    
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+}
+
+// 处理搜索
+async function handleSearch(keyword) {
+    // 显示加载状态
+    const container = document.getElementById('vocabulary-list');
+    container.innerHTML = '<div style="text-align: center; padding: 50px;">搜索中...</div>';
+    
+    try {
+        // 确保数据库已初始化
+        if (!dbInitialized) {
+            await Database.initDatabase();
+            dbInitialized = true;
+        }
+        
+        if (keyword.trim() === '') {
+            // 搜索框为空，显示所有词汇
+            currentVocabularyList = await getAllVocabulary();
+            isSearchMode = false;
+            currentKeyword = '';
+        } else {
+            // 执行搜索
+            currentVocabularyList = await Database.searchVocabulary(keyword.trim());
+            isSearchMode = true;
+            currentKeyword = keyword.trim();
+        }
+        
+        // 重置页码并显示数据
+        currentPage = 1;
+        displayPagedData(currentPage);
+    } catch (error) {
+        console.error('搜索失败:', error);
+        container.innerHTML = '<div style="text-align: center; padding: 50px; color: red;">搜索失败，请重试</div>';
+    }
+}
+
 // 初始化页面
-function initPage() {
+async function initPage() {
     // 显示当前日期
     document.getElementById('current-date').textContent = getCurrentDate();
     
-    // 生成并显示今日词汇
-    const dailyVocabulary = getDailyVocabulary();
-    generateVocabularyCards(dailyVocabulary);
+    // 显示加载状态
+    const container = document.getElementById('vocabulary-list');
+    container.innerHTML = '<div style="text-align: center; padding: 50px;">加载中...</div>';
+    
+    try {
+        // 初始化数据库
+        if (!dbInitialized) {
+            await Database.initDatabase();
+            dbInitialized = true;
+        }
+        
+        // 获取所有词汇用于分页
+        currentVocabularyList = await getAllVocabulary();
+        
+        // 显示第一页数据
+        displayPagedData(1);
+    } catch (error) {
+        console.error('初始化页面失败:', error);
+        container.innerHTML = '<div style="text-align: center; padding: 50px; color: red;">加载失败，请刷新页面重试</div>';
+    }
+}
+
+// 绑定事件监听器
+function bindEventListeners() {
+    // 搜索表单提交事件
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const keyword = document.getElementById('search-input').value;
+        handleSearch(keyword);
+    });
+    
+    // 上一页按钮点击事件
+    document.getElementById('prev-page').addEventListener('click', function() {
+        if (currentPage > 1) {
+            displayPagedData(currentPage - 1);
+        }
+    });
+    
+    // 下一页按钮点击事件
+    document.getElementById('next-page').addEventListener('click', function() {
+        if (currentPage < totalPages) {
+            displayPagedData(currentPage + 1);
+        }
+    });
 }
 
 // 页面加载完成后初始化
-window.onload = initPage;
+window.onload = function() {
+    initPage();
+    bindEventListeners();
+};
