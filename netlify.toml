@@ -1,0 +1,8 @@
+[build]
+  command = "echo 'Building...'"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/yue_learning.html"
+  status = 200
