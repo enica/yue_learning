@@ -272,4 +272,75 @@ function generateExtendedVocabulary() {
     // 添加更多常用短语和表达
     const phrasesVocabulary = [
         { word: "唔紧要", pronunciation: "m4 gan2 jiu3", explanation: "不要紧，没关系", example: "迟到少少唔紧要", category: "常用短语" },
-        { word: "慢慢嚟", pronunciation: "ma
+        { word: "慢慢嚟", pronunciation: "maan6 maan6 lai4", explanation: "慢慢来", example: "唔使急，慢慢嚟", category: "常用短语" },
+        { word: "唔使客气", pronunciation: "m4 sai2 haak3 hei3", explanation: "不用客气", example: "帮你系应该嘅，唔使客气", category: "常用短语" },
+        { word: "冇问题", pronunciation: "mou5 man6 tai4", explanation: "没问题", example: "呢件事交畀我，冇问题", category: "常用短语" },
+        { word: "得闲", pronunciation: "dak1 haan4", explanation: "有空", example: "你得闲吗？", category: "常用短语" },
+        { word: "唔得闲", pronunciation: "m4 dak1 haan4", explanation: "没空", example: "今日唔得闲", category: "常用短语" },
+        { word: "冇所谓", pronunciation: "mou5 so2 wai6", explanation: "无所谓", example: "食乜都得，冇所谓", category: "常用短语" },
+        { word: "话畀你知", pronunciation: "waa6 bei2 nei5 zi1", explanation: "告诉你", example: "我话畀你知一个秘密", category: "常用短语" },
+        { word: "听讲", pronunciation: "teng1 gong2", explanation: "听说", example: "听讲佢结婚啦", category: "常用短语" },
+        { word: "搞掂", pronunciation: "gaau2 dim6", explanation: "搞定", example: "件事搞掂啦", category: "常用短语" },
+        { word: "差唔多", pronunciation: "caa1 m4 do1", explanation: "差不多", example: "时间差唔多啦", category: "常用短语" },
+        { word: "好彩", pronunciation: "hou2 coi2", explanation: "幸运，幸好", example: "好彩我赶到", category: "常用短语" },
+        { word: "认真", pronunciation: "jing6 zan1", explanation: "认真", example: "做嘢要认真", category: "常用短语" },
+        { word: "求其", pronunciation: "kau4 kei4", explanation: "随便", example: "求其食啲嘢就算啦", category: "常用短语" },
+        { word: "特登", pronunciation: "dak6 dang1", explanation: "特意", example: "我特登嚟揾你", category: "常用短语" },
+        { word: "顺便", pronunciation: "seon6 bin6", explanation: "顺便", example: "我去开超市，顺便买餸", category: "常用短语" }
+    ];
+    
+    extendedVocabulary.push(...phrasesVocabulary);
+    
+    // 生成更多词汇，达到3500个
+    const additionalWords = [
+        // 职业
+        { word: "老师", pronunciation: "lou5 si1", explanation: "老师", example: "我嘅老师好有耐性", category: "职业" },
+        { word: "医生", pronunciation: "ji1 sang1", explanation: "医生", example: "我想大个做医生", category: "职业" },
+        { word: "护士", pronunciation: "wu6 si6", explanation: "护士", example: "护士工作好辛苦", category: "职业" },
+        { word: "警察", pronunciation: "ging2 caat3", explanation: "警察", example: "警察叔叔好威猛", category: "职业" },
+        { word: "消防员", pronunciation: "siu1 fong4 jyun4", explanation: "消防员", example: "消防员好勇敢", category: "职业" },
+        { word: "厨师", pronunciation: "cyu1 si1", explanation: "厨师", example: "我阿爸系厨师", category: "职业" },
+        { word: "司机", pronunciation: "si1 gei1", explanation: "司机", example: "巴士司机好专业", category: "职业" },
+        { word: "工程师", pronunciation: "gung1 cing4 si1", explanation: "工程师", example: "佢系电脑工程师", category: "职业" },
+        { word: "律师", pronunciation: "leot6 si1", explanation: "律师", example: "我请咗律师帮我", category: "职业" },
+        { word: "会计", pronunciation: "wui6 gai3", explanation: "会计师", example: "会计要计好多数", category: "职业" },
+        
+        // 身体部位
+        { word: "头", pronunciation: "tau4", explanation: "头", example: "我个头好痛", category: "身体" },
+        { word: "手", pronunciation: "sau2", explanation: "手", example: "举手回答问题", category: "身体" },
+        { word: "脚", pronunciation: "goek3", explanation: "脚", example: "对脚好攰", category: "身体" },
+        { word: "眼", pronunciation: "ngaan5", explanation: "眼睛", example: "对眼好干", category: "身体" },
+        { word: "耳", pronunciation: "ji5", explanation: "耳朵", example: "只耳仔好痕", category: "身体" },
+        { word: "口", pronunciation: "hau2", explanation: "嘴巴", example: "开口讲话", category: "身体" },
+        { word: "鼻", pronunciation: "bei6", explanation: "鼻子", example: "个鼻塞咗", category: "身体" },
+        { word: "心", pronunciation: "sam1", explanation: "心", example: "我个心好乱", category: "身体" },
+        { word: "背", pronunciation: "bui3", explanation: "背", example: "个背好痛", category: "身体" },
+        { word: "肚", pronunciation: "tou5", explanation: "肚子", example: "个肚饿啦", category: "身体" },
+        
+        // 日常用品
+        { word: "手机", pronunciation: "sau2 gei1", explanation: "手机", example: "我部手机冇电", category: "日常用品" },
+        { word: "电脑", pronunciation: "din6 nou5", explanation: "电脑", example: "用电脑做功课", category: "日常用品" },
+        { word: "电视", pronunciation: "din6 si6", explanation: "电视", example: "睇电视新闻", category: "日常用品" },
+        { word: "雪柜", pronunciation: "syut3 gwai6", explanation: "冰箱", example: "雪柜有冇嘢饮？", category: "日常用品" },
+        { word: "洗衣机", pronunciation: "sai2 jai1 gei1", explanation: "洗衣机", example: "用洗衣机洗衫", category: "日常用品" },
+        { word: "微波炉", pronunciation: "mei4 bo1 lou4", explanation: "微波炉", example: "用微波炉叮热啲餸", category: "日常用品" },
+        { word: "电饭煲", pronunciation: "din6 faan6 bou1", explanation: "电饭锅", example: "用电饭煲煮饭", category: "日常用品" },
+        { word: "风扇", pronunciation: "fung1 sin3", explanation: "风扇", example: "开风扇凉啲", category: "日常用品" },
+        { word: "冷气", pronunciation: "laang5 hei3", explanation: "空调", example: "开冷气啦", category: "日常用品" },
+        { word: "热水器", pronunciation: "jit6 seoi2 hei3", explanation: "热水器", example: "热水器坏咗", category: "日常用品" }
+    ];
+    
+    extendedVocabulary.push(...additionalWords);
+    
+    return extendedVocabulary;
+}
+
+// 生成3500个词汇数据
+const vocabularyData = generateExtendedVocabulary();
+
+// 导出数据
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = vocabularyData;
+} else {
+    window.vocabularyData = vocabularyData;
+}

@@ -44,6 +44,115 @@ h1 {
     opacity: 0.8;
 }
 
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.play-music-btn {
+    background-color: #a55eea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.play-music-btn:hover {
+    background-color: #954de9;
+    transform: translateY(-2px);
+}
+
+.play-music-btn:active {
+    transform: translateY(0);
+}
+
+.play-music-btn.music-playing {
+    background-color: #ff6b6b;
+    animation: pulse 2s infinite;
+}
+
+.play-music-btn.music-playing:hover {
+    background-color: #ee5a52;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.test-chinese-speech-btn {
+    background-color: #ff9f43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.test-chinese-speech-btn:hover {
+    background-color: #ff8c2a;
+    transform: translateY(-2px);
+}
+
+.test-chinese-speech-btn:active {
+    transform: translateY(0);
+}
+
+.test-speech-btn {
+    background-color: #4ecdc4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.test-speech-btn:hover {
+    background-color: #45b7aa;
+    transform: translateY(-2px);
+}
+
+.test-speech-btn:active {
+    transform: translateY(0);
+}
+
+.clear-db-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.clear-db-btn:hover {
+    background-color: #ee5a52;
+    transform: translateY(-2px);
+}
+
+.clear-db-btn:active {
+    transform: translateY(0);
+}
+
 #vocabulary-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
